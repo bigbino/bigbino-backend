@@ -1,19 +1,16 @@
 package com.hackaton.bigbino.model;
 
-import java.util.Objects;
-
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.SequenceGenerator;
+import java.util.Objects;
 
 @Entity
 public class Caminhoneiro {
 
-	@Id
-	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator="SEQ_CAMINHONEIRO")
-	@SequenceGenerator(name="SEQ_CAMINHONEIRO", sequenceName="id_seq_caminhoneiro", allocationSize=1)
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
 
     private String nome;
