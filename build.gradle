@@ -10,8 +10,6 @@ sourceCompatibility = '1.8'
 
 repositories {
 	mavenCentral()
-	mavenLocal()
-	maven { url "https://oss.sonatype.org/content/repositories/snapshots" }
 }
 
 dependencies {
@@ -21,8 +19,8 @@ dependencies {
 	testImplementation('org.springframework.boot:spring-boot-starter-test') {
 		exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
 	}
-	compile group: 'edu.cmu.sphinx', name: 'sphinx4-core', version:'5prealpha-SNAPSHOT'
-	compile group: 'edu.cmu.sphinx', name: 'sphinx4-data', version:'5prealpha-SNAPSHOT'
+	compile group: 'com.google.cloud', name: 'libraries-bom', version: '5.7.0', ext: 'pom'
+	compile group: 'com.google.cloud', name: 'google-cloud-texttospeech', version: '1.0.2'
 }
 
 test {
