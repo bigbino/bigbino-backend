@@ -17,8 +17,7 @@ public class Caminhoneiro {
     private String usuario;
     private String password;
 
-    @OneToMany(mappedBy = "caminhoneiro", fetch = FetchType.LAZY,
-    cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "caminhoneiro", fetch = FetchType.LAZY)
     private List<Veiculo> veiculos;
 
     public Caminhoneiro() {
