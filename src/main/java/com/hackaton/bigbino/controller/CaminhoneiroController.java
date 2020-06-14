@@ -9,22 +9,23 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
+@RequestMapping("/api/caminhoneiro")
 public class CaminhoneiroController {
 
     @Autowired
     private CaminhoneiroService caminhoneiroService;
 
-    @GetMapping(value = "/caminhoneiros")
+    @GetMapping
     public List<Caminhoneiro> getAll(){
         return caminhoneiroService.getAllCaminhoneiros();
     }
 
-    @GetMapping(value = "/caminhoneiro/{id}")
+    @GetMapping(value = "/id/{id}")
     public Caminhoneiro getCaminhoneiroById(@PathVariable(value = "id") long id) throws Exception {
         return caminhoneiroService.getCaminhoneiroID(id);
     }
 
-    @PostMapping("/criarCaminhoneiro")
+    @PostMapping("/salvar")
     public Caminhoneiro saveCaminhoneiro(@RequestBody Caminhoneiro caminhoneiro){
         return caminhoneiroService.criarCaminhoneiro(caminhoneiro);
     }
