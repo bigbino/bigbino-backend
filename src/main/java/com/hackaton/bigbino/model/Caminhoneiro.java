@@ -19,7 +19,7 @@ public class Caminhoneiro {
 
     @OneToMany(mappedBy = "caminhoneiro", fetch = FetchType.LAZY,
     cascade = CascadeType.ALL)
-    private List<Veiculo> viculos;
+    private List<Veiculo> veiculos;
 
     public Caminhoneiro() {
     }
@@ -31,12 +31,12 @@ public class Caminhoneiro {
         this.password = password;
     }
 
-    public List<Veiculo> getViculos() {
-        return viculos;
+    public List<Veiculo> getVeiculos() {
+        return veiculos;
     }
 
-    public void setViculos(List<Veiculo> viculos) {
-        this.viculos = viculos;
+    public void setVeiculos(List<Veiculo> veiculos) {
+        this.veiculos = veiculos;
     }
 
     public long getId() {
