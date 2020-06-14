@@ -1,4 +1,4 @@
-package com.hackaton.bigbino.model;
+package com.hackaton.bigbino.model.enums;
 
 public enum Dia {
 	
