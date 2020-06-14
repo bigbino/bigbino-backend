@@ -1,12 +1,11 @@
 package com.hackaton.bigbino.model;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.util.List;
 import java.util.Objects;
 
 @Entity
+@Table(name = "caminhoneiro")
 public class Caminhoneiro {
 
     @Id
@@ -18,6 +17,10 @@ public class Caminhoneiro {
     private String usuario;
     private String password;
 
+    @OneToMany(mappedBy = "caminhoneiro", fetch = FetchType.LAZY,
+    cascade = CascadeType.ALL)
+    private List<Veiculo> viculos;
+
     public Caminhoneiro() {
     }
 
@@ -26,6 +29,14 @@ public class Caminhoneiro {
         this.sobrenome = sobrenome;
         this.usuario = usuario;
         this.password = password;
+    }
+
+    public List<Veiculo> getViculos() {
+        return viculos;
+    }
+
+    public void setViculos(List<Veiculo> viculos) {
+        this.viculos = viculos;
     }
 
     public long getId() {

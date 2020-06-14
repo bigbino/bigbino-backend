@@ -1,9 +1,6 @@
 package com.hackaton.bigbino.model;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.util.Objects;
 
 @Entity
@@ -21,7 +18,19 @@ public class Veiculo {
     private int comprimento;
     private int largura;
 
+    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    @JoinColumn(name = "caminhoneiro_id", nullable = false)
+    private Caminhoneiro caminhoneiro;
+
     public Veiculo() {
+    }
+
+    public Caminhoneiro getCaminhoneiro() {
+        return caminhoneiro;
+    }
+
+    public void setCaminhoneiro(Caminhoneiro caminhoneiro) {
+        this.caminhoneiro = caminhoneiro;
     }
 
     public Long getId() {
