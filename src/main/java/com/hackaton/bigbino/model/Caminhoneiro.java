@@ -76,4 +76,15 @@ public class Caminhoneiro {
     public int hashCode() {
         return Objects.hash(id, nome, sobrenome, usuario, password);
     }
+
+    @Override
+    public String toString() {
+        return "Caminhoneiro{" +
+                "id=" + id +
+                ", nome='" + nome + '\'' +
+                ", sobrenome='" + sobrenome + '\'' +
+                ", usuario='" + usuario + '\'' +
+                ", password='" + password + '\'' +
+                '}';
+    }
 }
