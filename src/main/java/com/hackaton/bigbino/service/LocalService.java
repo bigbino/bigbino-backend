@@ -10,10 +10,10 @@ import com.hackaton.bigbino.repository.LocalRepository;
 
 @Service
 public class LocalService {
-	
+
 	@Autowired
 	private LocalRepository localRepository;
-	
+
 	public List<Local> getAllLocais(){
         return localRepository.findAll();
     }

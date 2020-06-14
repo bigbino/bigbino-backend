@@ -84,6 +84,10 @@ public class Local {
 	public void setLocalizacao(Localizacao localizacao) {
 		this.localizacao = localizacao;
 	}
+
+	public long getId() {
+		return id;
+	}
 	
 	
 

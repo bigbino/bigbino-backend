@@ -8,6 +8,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import com.hackaton.bigbino.model.enums.Dia;
+
 @Entity
 @Table(name = "horario")
 public class Horario {
@@ -48,6 +50,10 @@ public class Horario {
 	
 	public void setHorarioFechamento(String horarioFechamento) {
 		this.horarioFechamento = horarioFechamento;
+	}
+
+	public long getId() {
+		return id;
 	}
 	
 }

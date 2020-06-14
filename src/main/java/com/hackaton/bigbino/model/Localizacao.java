@@ -49,6 +49,10 @@ public class Localizacao {
 	public void setLongitude(Double longitude) {
 		this.longitude = longitude;
 	}
+
+	public long getId() {
+		return id;
+	}
 	
 	
 
