@@ -14,9 +14,6 @@ public class CaminhoneiroController {
     @Autowired
     private CaminhoneiroService caminhoneiroService;
 
-    @Autowired
-    private CaminhoneiroRepository caminhoneiroRepository;
-
     @GetMapping(value = "/caminhoneiros")
     public List<Caminhoneiro> getAll(){
         return caminhoneiroService.getAllCaminhoneiros();
