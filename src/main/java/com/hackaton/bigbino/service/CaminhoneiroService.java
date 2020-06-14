@@ -24,4 +24,9 @@ public class CaminhoneiroService {
             throw new Exception("Not found");
         }
     }
+
+    public Caminhoneiro criarCaminhoneiro(Caminhoneiro caminhoneiro){
+        return caminhoneiroRepository.save(caminhoneiro);
+
+    }
 }
