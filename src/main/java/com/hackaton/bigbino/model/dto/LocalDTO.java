@@ -1,9 +1,11 @@
 package com.hackaton.bigbino.model.dto;
 
+import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
+import com.hackaton.bigbino.model.Horario;
 import com.hackaton.bigbino.model.Local;
-import com.hackaton.bigbino.model.Localizacao;
 
 public class LocalDTO {
 	
@@ -17,20 +19,19 @@ public class LocalDTO {
 	
 	private List<HorarioDTO> horarios;
 	
-	private Localizacao localizacao;
+	private LocalizacaoDTO localizacao;
 	
 	public LocalDTO() {
 	}
 	
-	//TODO
+	
 	public LocalDTO(Local local) {
-//		setId(local.getId());
-//		setNome(local.getNome());
-//		setEmpresaResponsavel(local.getEmpresaResponsavel());
-//		setDescricao(local.getDescricao());
-//		setHorarios(local.getHorarios().stream());
-//		setLocalizacao(local.getLocalizacao());
-		
+		setId(local.getId());
+		setNome(local.getNome());
+		setEmpresaResponsavel(local.getEmpresaResponsavel());
+		setDescricao(local.getDescricao());
+		setHorarios(local.getHorarios().stream().map(HorarioDTO::new).collect(Collectors.toList()));
+		setLocalizacao(new LocalizacaoDTO(local.getLocalizacao()));
 	}
 
 	public long getId() {
@@ -73,15 +74,32 @@ public class LocalDTO {
 		this.horarios = horarios;
 	}
 
-	public Localizacao getLocalizacao() {
+	public LocalizacaoDTO getLocalizacao() {
 		return localizacao;
 	}
 
-	public void setLocalizacao(Localizacao localizacao) {
+	public void setLocalizacao(LocalizacaoDTO localizacao) {
 		this.localizacao = localizacao;
 	}
 	
-	
-	
+	public static class Builder {
+		private Local local;
+		public Builder(LocalDTO dto) {
+			local = new Local();
+			local.setNome(dto.getNome());
+			local.setDescricao(dto.getDescricao());
+			local.setEmpresaResponsavel(dto.getEmpresaResponsavel());
+			List<Horario> horarios = new ArrayList<Horario>();
+			dto.getHorarios().forEach(h ->{
+				horarios.add(new HorarioDTO.Builder(h).build());
+			});
+			local.setHorarios(horarios);
+			local.setLocalizacao(new LocalizacaoDTO.Builder(dto.getLocalizacao()).build());
+		}
+		
+		public Local build() {
+			return local;
+		}
+	}
 
 }
