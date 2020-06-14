@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
+@RequestMapping("/api")
 public class CaminhoneiroController {
 
     @Autowired
@@ -29,17 +30,17 @@ public class CaminhoneiroController {
         return caminhoneiroService.criarCaminhoneiro(caminhoneiro);
     }
 
-    @PostMapping("/salvarVarios")
+    @PostMapping("/salvarVariosCaminhoneiros")
     public List<Caminhoneiro> saveVariosCaminhoneiros(@RequestBody List<Caminhoneiro> caminhoneiros){
         return caminhoneiroService.criarCaminhoneirosList(caminhoneiros);
     }
 
-    @PutMapping("/atualizar/{id}")
+    @PutMapping("/atualizarCaminhoneiro/{id}")
     public Caminhoneiro atualizarCaminhoneiro(@RequestBody Caminhoneiro caminhoneiro, @PathVariable(value = "id") Long id){
         return caminhoneiroService.atualizarCaminhoneiro(caminhoneiro, id);
     }
 
-    @DeleteMapping("/remover/{id}")
+    @DeleteMapping("/removerCaminhoneiro/{id}")
     public void removerCaminhoneiro(@PathVariable Long id){
         caminhoneiroService.removerCaminhoneiro(id);
     }

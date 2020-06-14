@@ -18,7 +18,7 @@ public class CaminhoneiroService {
         return caminhoneiroRepository.findAll();
     }
 
-    public Caminhoneiro getCaminhoneiroID(Long id) throws Exception {
+    public Caminhoneiro getCaminhoneiroID(Long id) {
         return caminhoneiroRepository.findById(id)
                 .orElseThrow(() -> new CaminhoneiroNotFoundException(id));
     }
