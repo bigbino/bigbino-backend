@@ -3,7 +3,6 @@ package com.hackaton.bigbino.tts;
 import com.google.cloud.texttospeech.v1.*;
 import com.google.protobuf.ByteString;
 
-import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.OutputStream;
@@ -12,7 +11,7 @@ public class TextToSpeech {
 
     private String text;
 
-    public static void speak (String text) throws IOException {
+    public static ByteString speak (String text) throws IOException {
         // Instantiates a client
         try (TextToSpeechClient textToSpeechClient = TextToSpeechClient.create()) {
             // Set the text input to be synthesized
@@ -43,6 +42,8 @@ public class TextToSpeech {
                 out.write(audioContents.toByteArray());
                 System.out.println("Audio content written to file \"output.mp3\"");
             }
+
+            return audioContents;
         }
 
     }

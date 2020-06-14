@@ -29,4 +29,5 @@ public class CaminhoneiroService {
         return caminhoneiroRepository.save(caminhoneiro);
 
     }
+
 }
