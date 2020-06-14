@@ -4,6 +4,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
 @Entity
@@ -11,7 +12,8 @@ import javax.persistence.Table;
 public class Localizacao {
 	
 	@Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator="SEQ_LOCALIZACAO")
+	@SequenceGenerator(name="SEQ_LOCALIZACAO", sequenceName="id_seq_localizacao", allocationSize=1)
     private long id;
 	private boolean exata;
 	private Double latitude;

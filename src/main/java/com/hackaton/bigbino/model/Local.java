@@ -11,6 +11,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.OneToOne;
+import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
 @Entity
@@ -18,7 +19,8 @@ import javax.persistence.Table;
 public class Local {
 	
 	@Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator="SEQ_LOCAL")
+	@SequenceGenerator(name="SEQ_LOCAL", sequenceName="id_seq_local", allocationSize=1)
     private long id;
 	private String nome;
 	private String empresaResponsavel;

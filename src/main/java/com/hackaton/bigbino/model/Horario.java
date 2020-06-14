@@ -6,6 +6,7 @@ import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
 @Entity
@@ -13,7 +14,8 @@ import javax.persistence.Table;
 public class Horario {
 	
 	@Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator="SEQ_HORARIO")
+	@SequenceGenerator(name="SEQ_HORARIO", sequenceName="id_seq_horario", allocationSize=1)
     private long id;
 	
 	@Enumerated(EnumType.STRING)
