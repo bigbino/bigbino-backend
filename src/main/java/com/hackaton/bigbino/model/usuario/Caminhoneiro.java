@@ -1,4 +1,4 @@
-package com.hackaton.bigbino.usuario;
+package com.hackaton.bigbino.model.usuario;
 
 import java.util.Objects;
 
