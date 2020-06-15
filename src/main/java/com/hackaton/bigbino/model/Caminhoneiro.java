@@ -20,6 +20,10 @@ public class Caminhoneiro {
     @OneToMany(mappedBy = "caminhoneiro", fetch = FetchType.LAZY)
     private List<Veiculo> veiculos;
 
+    @OneToOne(fetch = FetchType.LAZY, cascade=CascadeType.ALL)
+    @JoinColumn(name = "id_caminhoneiro")
+    private Infosaude infosaude;
+
     public Caminhoneiro() {
     }
 
@@ -28,6 +32,14 @@ public class Caminhoneiro {
         this.sobrenome = sobrenome;
         this.usuario = usuario;
         this.password = password;
+    }
+
+    public Infosaude getInfosaude() {
+        return infosaude;
+    }
+
+    public void setInfosaude(Infosaude infosaude) {
+        this.infosaude = infosaude;
     }
 
     public List<Veiculo> getVeiculos() {
